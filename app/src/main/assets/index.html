@@ -11,29 +11,36 @@
 </style></head>
 <body><div class="app">
 <header class="top"><div class="brand"><img src="icon.png" alt="Ícone Quiz Filosofia"><div><strong>QUIZ FILOSOFIA</strong><small>6º ano · pensar, sentir, conviver</small></div></div>
-<div class="audio"><button id="musicToggle" aria-label="Música">♫</button><button id="mute" aria-label="Mutar">🔊</button><input id="volume" type="range" min="0" max="100" value="28" aria-label="Volume"></div></header>
+<div class="audio"><button id="musicToggle" aria-label="Música">♫</button><span id="trackName" style="font-size:10px;color:#c7c9ce;max-width:105px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Trilha da tela</span><button id="mute" aria-label="Mutar">🔊</button><input id="volume" type="range" min="0" max="100" value="28" aria-label="Volume"></div></header>
 <section id="home" class="screen active">
 <div class="hero"><div><div class="eyebrow">Uma jornada de ideias</div><h1>Quiz <em>Filosofia</em></h1><span class="ribbon">VIVER ETICAMENTE · A BELEZA QUE ENXERGAMOS</span><p>Olhe para o universo, reflita sobre suas escolhas e descubra como a cultura transforma nosso modo de perceber o mundo.</p><div class="actions"><button class="btn primary" onclick="show('summary')">📖 Estudar resumo</button><button class="btn" onclick="show('levels')">✦ Jogar quiz</button></div></div><img class="heroart" src="images/cosmos.jpg" alt="A Terra e o cosmos"></div>
 <div class="grid"><div class="tile" onclick="show('summary')"><div class="emoji">📚</div><h3>Sala de reflexão</h3><p>Resumo em seis partes, com imagens do material.</p></div><div class="tile" onclick="show('games')"><div class="emoji">🎮</div><h3>Jogos de ideias</h3><p>Memória, associação, palavras e desafios.</p></div><div class="tile" onclick="show('levels')"><div class="emoji">🏆</div><h3>Desafio principal</h3><p>Questões embaralhadas em três dificuldades.</p></div></div>
 </section>
-<section id="summary" class="screen"><div class="eyebrow">Caderno de revisão</div><h2 class="sectiontitle">Resumo para a prova</h2><p class="lead">Estude as ideias centrais das páginas enviadas. Observe os conceitos em destaque e tente explicar cada um com suas palavras.</p><div class="tabs" id="sumtabs"></div><article class="summary" id="sumcontent"></article><div class="actions"><button class="btn" onclick="show('home')">← Início</button><button class="btn primary" onclick="show('levels')">Testar o que aprendi →</button></div></section>
+<noscript><div class="panel"><h2>Conteúdo de estudo</h2><p>Este aplicativo precisa do JavaScript habilitado para abrir os jogos interativos. Consulte o resumo incluído no pacote se o navegador estiver bloqueando scripts.</p></div></noscript><section id="summary" class="screen"><div class="eyebrow">Caderno de revisão</div><h2 class="sectiontitle">Resumo para a prova</h2><p class="lead">Estude as ideias centrais das páginas enviadas. Observe os conceitos em destaque e tente explicar cada um com suas palavras.</p><div class="tabs" id="sumtabs"></div><article class="summary" id="sumcontent"><div class="studyimg"><figure><img src="images/cosmos.jpg" alt="Cosmos e planeta Terra"><figcaption>A harmonia do universo inspira a reflexão sobre uma vida harmoniosa e ética.</figcaption></figure></div>
+<h3>Viver eticamente é reflexo da mesma ordem que governa o cosmos</h3>
+<p>Ao contemplar o espaço infinito, também precisamos olhar para dentro de nós. Ideias de Nietzsche convidam a refletir sobre a pequenez humana em relação ao todo e sobre o sentido da vida. Viver eticamente envolve buscar sabedoria e paz, estudar Filosofia e Ética e viver em harmonia com as outras pessoas e com o mundo ao redor.</p>
+<h3>Kierkegaard e o existencialismo</h3>
+<p>Søren Kierkegaard (1813–1855), um dos precursores do <b>existencialismo</b>, afirma que a angústia diante da incerteza e da vastidão do cosmos pode nos despertar para a busca de uma vida autêntica, sabedoria e paz.</p>
+<h3>Albert Camus e o absurdo da existência</h3>
+<p>Albert Camus (1913–1960) descreve o <b>absurdo da existência</b> como o conflito entre nossa necessidade de significado e a ausência de respostas definitivas do universo. A <b>revolta contra o absurdo</b> consiste em reconhecer esse paradoxo e viver intensamente, usando a liberdade para construir uma existência autêntica. A solidariedade, a convivência e o cuidado com o mundo tornam a vida mais rica e significativa.</p>
+<div class="note"><b>Ideia para memorizar:</b> Kierkegaard — angústia e vida autêntica. Camus — absurdo, liberdade, revolta e solidariedade.</div></article><div class="actions"><button class="btn" onclick="show('home')">← Início</button><button class="btn primary" onclick="show('levels')">Testar o que aprendi →</button></div></section>
 <section id="levels" class="screen"><div class="eyebrow">Escolha sua jornada</div><h2 class="sectiontitle">Qual será o desafio?</h2><p class="lead">Cada pergunta tem seu próprio cronômetro. Ao errar ou acabar o tempo, você perde uma vida.</p><div class="grid levels"><div class="tile level"><div class="emoji">🌱</div><h3>Fácil</h3><div class="time">1:30</div><p>por pergunta · 3 vidas</p><button class="btn primary" onclick="startQuiz('easy')">Começar</button></div><div class="tile level"><div class="emoji">🧭</div><h3>Normal</h3><div class="time">1:00</div><p>por pergunta · 4 vidas</p><button class="btn primary" onclick="startQuiz('normal')">Começar</button></div><div class="tile level"><div class="emoji">🔥</div><h3>Difícil</h3><div class="time">0:30</div><p>por pergunta · 5 vidas</p><button class="btn primary" onclick="startQuiz('hard')">Começar</button></div></div><div class="actions"><button class="btn" onclick="show('home')">← Voltar ao início</button></div></section>
 <section id="quiz" class="screen"><div class="quizhead"><span class="pill" id="qcount">1/30</span><span class="pill" id="lives">♥ ♥ ♥</span><span class="pill" id="timer">01:30</span></div><div class="progress"><span id="qprogress"></span></div><div class="eyebrow" id="qtopic">Filosofia</div><h2 class="question" id="question"></h2><div class="answers" id="answers"></div><div class="feedback" id="feedback"></div><div class="actions"><button class="btn" onclick="useHint()">💡 Dica</button><button class="btn" onclick="skipQuestion()">⏭ Pular para o final</button><button class="btn ghost" onclick="show('home')">⌂ Início</button></div></section>
 <section id="result" class="screen"><div class="panel" style="text-align:center"><div style="font-size:54px">✨</div><div class="eyebrow">Fim da jornada</div><h2 class="sectiontitle" id="resultTitle">Muito bem!</h2><p class="lead" id="resultText"></p><div class="grid"><div class="tile"><small>Acertos</small><h2 id="correctN">0</h2></div><div class="tile"><small>Respondidas</small><h2 id="answeredN">0</h2></div><div class="tile"><small>Precisão</small><h2 id="accuracy">0%</h2></div></div><div class="actions" style="justify-content:center"><button class="btn" onclick="show('home')">Início</button><button class="btn primary" onclick="show('levels')">Jogar novamente</button><button class="btn" onclick="show('summary')">Revisar</button></div></div></section>
-<section id="games" class="screen"><div class="eyebrow">Aprender brincando</div><h2 class="sectiontitle">Jogos de ideias</h2><p class="lead">Treine conceitos, relações e interpretações.</p><div class="grid"><div class="tile" onclick="startMemory()"><div class="emoji">🃏</div><h3>Jogo da memória</h3><p>Encontre os pares de conceito e explicação.</p></div><div class="tile" onclick="startTF()"><div class="emoji">⚖️</div><h3>Verdadeiro ou falso</h3><p>Leia a pergunta e julgue a resposta proposta.</p></div><div class="tile" onclick="startQA()"><div class="emoji">❔</div><h3>Associe pergunta e resposta</h3><p>Escolha a resposta que completa cada pergunta.</p></div><div class="tile" onclick="startMatch()"><div class="emoji">🔗</div><h3>Ligue as colunas</h3><p>Conecte perguntas e explicações correspondentes.</p></div><div class="tile" onclick="startWords()"><div class="emoji">🔎</div><h3>Caça-palavras</h3><p>Encontre palavras importantes do capítulo.</p></div><div class="tile" onclick="startCross()"><div class="emoji">✏️</div><h3>Palavras cruzadas</h3><p>Descubra conceitos usando as pistas.</p></div><div class="tile" onclick="startRelate()"><div class="emoji">🧠</div><h3>Relacione as palavras</h3><p>Escolha o conceito que completa a ideia.</p></div></div><div class="actions"><button class="btn" onclick="show('home')">← Início</button></div></section>
+<section id="games" class="screen"><div class="eyebrow">Aprender brincando</div><h2 class="sectiontitle">Jogos de ideias</h2><p class="lead">Treine conceitos, relações e interpretações.</p><div class="grid"><div class="tile" onclick="startMemory()"><div class="emoji">🃏</div><h3>Jogo da memória</h3><p>Encontre os pares de conceito e explicação.</p></div><div class="tile" onclick="startTF()"><div class="emoji">⚖️</div><h3>Verdadeiro ou falso</h3><p>Leia a pergunta e julgue a resposta proposta.</p></div><div class="tile" onclick="startQA()"><div class="emoji">❔</div><h3>Associe pergunta e resposta</h3><p>Escolha a resposta que completa cada pergunta.</p></div><div class="tile" onclick="startMatch()"><div class="emoji">🔗</div><h3>Ligue as colunas</h3><p>Conecte perguntas e explicações correspondentes.</p></div><div class="tile" onclick="startWords()"><div class="emoji">🔎</div><h3>Caça-palavras</h3><p>Encontre palavras importantes do capítulo.</p></div><div class="tile" onclick="startCross()"><div class="emoji">✏️</div><h3>Palavras cruzadas</h3><p>Descubra conceitos usando as pistas.</p></div><div class="tile" onclick="startReasoning()"><div class="emoji">🧩</div><h3>Desafio de raciocínio</h3><p>Aplique as ideias do livro a situações do cotidiano.</p></div><div class="tile" onclick="startRelate()"><div class="emoji">🧠</div><h3>Relacione as palavras</h3><p>Escolha o conceito que completa a ideia.</p></div></div><div class="actions"><button class="btn" onclick="show('home')">← Início</button></div></section>
 <section id="minigame" class="screen"><div class="quizhead"><div><div class="eyebrow" id="gameLabel">Mini jogo</div><h2 class="sectiontitle" id="gameTitle"></h2></div><button class="btn ghost" onclick="show('games')">✕ Sair dos jogos</button></div><div class="panel" id="gameBody"></div><div class="feedback" id="gameFeedback"></div><div class="actions"><button class="btn" onclick="show('home')">⌂ Início</button><button class="btn ghost" onclick="show('games')">Outros jogos</button></div></section>
-<footer class="footer">Quiz Filosofia · SAE Digital · 6º ano · Aprender a pensar, respeitar e conviver.</footer>
+<div id="runtimeError" role="alert" style="display:none;background:#542c2c;color:#fff;padding:12px;border-radius:12px;margin-top:12px"></div><footer class="footer">Quiz Filosofia · SAE Digital · 6º ano · Aprender a pensar, respeitar e conviver.</footer>
 </div>
 <script>
 const $=id=>document.getElementById(id);
 let screen='home',timerId=null,level='easy',seconds=90,lives=3,queue=[],idx=0,correct=0,answered=0,hintUsed=false;
 const summaries=[
-{t:'Viver eticamente',imgs:[['images/cosmos.jpg','A imagem do cosmos convida a refletir sobre nosso lugar no universo.']],h:`<h3>Viver eticamente é refletir sobre como viver</h3><p>O capítulo menciona ideias de Nietzsche como convite a refletir sobre a pequenez humana diante do todo. Relaciona a busca pelo <b>sentido da vida</b> com a maneira como convivemos com as pessoas e com o mundo. A Filosofia convida a olhar para o universo e também para dentro de nós.</p><p>Viver eticamente envolve buscar sabedoria e paz, agir em harmonia com as outras pessoas e cuidar do mundo ao redor. Não somos o centro do universo, mas podemos construir uma vida autêntica e significativa.</p><div class="note"><b>Para lembrar:</b> ética não é só falar sobre o bem; é refletir sobre nossas escolhas e a forma como vivemos com os outros.</div>`},
+{t:'Viver eticamente',imgs:[['images/cosmos.jpg','A imagem do cosmos convida a refletir sobre nosso lugar no universo.']],h:`<h3>Viver eticamente é refletir sobre como viver</h3><p>O texto afirma que, ao contemplar o espaço infinito, também precisamos aprender a olhar para dentro de nós. Ideias de <b>Nietzsche</b> convidam a refletir sobre a pequenez humana em relação ao todo. Diante dessa reflexão, os filósofos buscam encontrar o <b>sentido da vida</b>. Viver eticamente envolve buscar sabedoria e paz, estudar Filosofia e Ética e viver em harmonia com as outras pessoas e com o mundo ao redor.</p><p>Viver eticamente envolve buscar sabedoria e paz, agir em harmonia com as outras pessoas e cuidar do mundo ao redor. Não somos o centro do universo, mas podemos construir uma vida autêntica e significativa.</p><div class="note"><b>Para lembrar:</b> ética não é só falar sobre o bem; é refletir sobre nossas escolhas e a forma como vivemos com os outros.</div>`},
 {t:'Kierkegaard e Camus',imgs:[],h:`<h3>Søren Kierkegaard (1813–1855)</h3><p>Foi um dos precursores do <b>existencialismo</b>. Para ele, diante da incerteza e da vastidão do cosmos, é natural sentir <b>angústia</b>. Esse sentimento pode nos despertar para a busca de uma vida autêntica, de sabedoria e de paz.</p><h3>Albert Camus (1913–1960)</h3><p>Escreveu sobre o <b>absurdo da existência</b>: os seres humanos procuram um propósito, mas o universo não oferece respostas definitivas. Para Camus, devemos reconhecer esse paradoxo e usar nossa liberdade para construir uma existência autêntica.</p><p>Ele chama essa atitude de <b>revolta contra o absurdo</b>: viver intensamente, sem se render ao desespero. A convivência, a solidariedade e o cuidado com o mundo tornam a vida mais rica e significativa.</p><div class="note"><b>Diferença importante:</b> Kierkegaard destaca a angústia como impulso para buscar uma vida autêntica; Camus destaca o absurdo e a liberdade de construir sentido.</div>`},
 {t:'O ser humano e o cosmos',imgs:[['images/astronaut.jpg','A atividade do livro usa a imagem de um astronauta para acompanhar o poema.']],h:`<h3>O poema “O ser humano e o cosmos”</h3><p>O ser humano observa o cosmos, faz perguntas, constrói telescópios, lança foguetes e descobre planetas. Mesmo assim, o universo não responde quem somos.</p><p>Então, a pessoa olha para dentro: pensamentos, dúvidas e sonhos. Descobre que viver é buscar equilíbrio e ordem no meio do caos.</p><p>O poema conclui que mais importante do que conhecer o céu é <b>cuidar do lugar onde vivemos, das pessoas que amamos e aprender a ser feliz</b>. A vida é passageira, preciosa e merece ser bem vivida.</p><p>A atividade também propõe escrever uma <b>carta ao cosmos</b>, refletindo sobre a humanidade e a vida na Terra, nosso lugar no universo e o aspecto da existência que gostaríamos de compartilhar.</p><div class="note"><b>Ideia central:</b> conhecer o universo é importante, mas cuidar da vida e das relações também é essencial.</div>`},
 {t:'Beleza e cultura',imgs:[['images/culturas.jpg','A diversidade de pessoas representa diferentes histórias, culturas e modos de perceber o mundo.']],h:`<h3>A beleza que o mundo tem é a beleza que enxergamos nele</h3><p>O modo como vemos o mundo é influenciado pela nossa história e pela cultura em que vivemos. Cultura inclui <b>língua, religião, artes, tradições, leis e normas sociais</b>.</p><p>Ela influencia nossos relacionamentos, nossa relação com o ambiente, nossos conhecimentos, nossa fé e até o que pensamos sobre o bem e o mal.</p><p>Existem diferentes visões de mundo. O texto destaca que <b>nenhuma cultura é melhor do que outra</b>: elas podem ser diferentes, válidas e complementares. O livro resume essa ideia na frase: “a beleza que o mundo tem é a quantidade de mundos que o mundo contém”. Conhecer outras perspectivas amplia nossa compreensão.</p><div class="note"><b>Para a prova:</b> cultura molda nossa visão de mundo; conhecer outras culturas ajuda a perceber diferentes formas de interpretar a realidade.</div>`},
-{t:'O futuro é ancestral',imgs:[['images/natureza.jpg','A imagem das mãos unidas acompanha a reflexão sobre natureza, comunidade e cuidado.']],h:`<h3>O futuro é ancestral — Ailton Krenak</h3><p>O livro apresenta o pensamento do filósofo e escritor brasileiro <b>Ailton Krenak</b>. Ele critica a ideia de progresso que explora os recursos naturais e degrada o ambiente. Defende que precisamos aprender a viver em equilíbrio com a natureza.</p><p>Para Krenak, a <b>Terra é um organismo vivo</b>, não apenas um recurso à disposição dos seres humanos. Devemos respeitá-la e reaprender a viver em harmonia com o planeta.</p><p>Ele destaca que os povos indígenas são guardiões do planeta porque suas culturas valorizam a preservação. Sua cosmologia integra natureza e existência humana: pessoas, animais, plantas, rios e montanhas fazem parte de um mesmo sistema de vida.</p><div class="note"><b>Ideia-chave:</b> o futuro precisa aprender com a sabedoria ancestral e com a relação de respeito à natureza.</div>`},
-{t:'Yanomami e respeito cultural',imgs:[['images/dialogo.jpg','A convivência entre diferentes pessoas representa a importância do diálogo intercultural.']],h:`<h3>Davi Kopenawa e a visão Yanomami</h3><p>O livro <b>A queda do céu: palavras de um xamã Yanomami</b>, escrito por Davi Kopenawa em colaboração com Bruce Albert, apresenta a cosmologia Yanomami.</p><p>Kopenawa alerta para a devastação da Amazônia causada por garimpo, mineração, desmatamento e invasões. Para os Yanomami, a floresta sustenta o céu; sua destruição ameaça todas as formas de vida. Por isso, “a queda do céu” é uma metáfora para o colapso do mundo se a floresta desaparecer.</p><p>Ele valoriza os antepassados e os ensinamentos dos xamãs. A expressão <b>“o futuro é ancestral”</b> sugere olhar para os lados e para trás, aprendendo com a sabedoria recebida, para seguir em frente.</p><h3>Respeito cultural e diálogo intercultural</h3><p>A Filosofia valoriza o encontro entre diferentes culturas. O <b>diálogo intercultural</b> é uma troca em que cada povo tem voz e seus conhecimentos e modos de vida são reconhecidos. Ele ajuda a resolver conflitos com <b>empatia e respeito</b>, sem preconceito.</p><div class="note"><b>Para lembrar:</b> respeitar uma cultura diferente não significa abandonar a própria; significa ouvir, dialogar e reconhecer a dignidade dos outros modos de vida.</div>`}
+{t:'O futuro é ancestral',imgs:[['images/natureza.jpg','A imagem das mãos unidas acompanha a reflexão sobre natureza, comunidade e cuidado.']],h:`<h3>O futuro é ancestral — Ailton Krenak</h3><p>O livro apresenta o pensamento do filósofo e escritor brasileiro <b>Ailton Krenak</b>. Ele critica a ideia de progresso que explora os recursos naturais e degrada o ambiente. Defende que precisamos aprender a viver em equilíbrio com a natureza.</p><p>Para Krenak, a <b>Terra é um organismo vivo</b>, não apenas um recurso à disposição dos seres humanos. Devemos respeitá-la e reaprender a viver em harmonia com o planeta.</p><p>Em <i>Ideias para adiar o fim do mundo</i> (2019), Krenak afirma que a desconexão humana com a natureza está entre as causas das crises ambientais e sociais. Nessa perspectiva, a Terra é considerada uma “mãe” e deve ser respeitada. Em <i>O amanhã não está à venda</i> (2020), ele destaca que as comunidades indígenas são guardiãs do planeta porque sua cultura se baseia na preservação, e não na exploração. Sua cosmologia integra natureza e existência humana: pessoas, animais, plantas, rios e montanhas fazem parte de um mesmo sistema de vida.</p><div class="note"><b>Ideia-chave:</b> o futuro precisa aprender com a sabedoria ancestral e com a relação de respeito à natureza.</div>`},
+{t:'Yanomami e respeito cultural',imgs:[['images/dialogo.jpg','A convivência entre diferentes pessoas representa a importância do diálogo intercultural.']],h:`<h3>Davi Kopenawa e a visão Yanomami</h3><p>O livro <b>A queda do céu: palavras de um xamã Yanomami</b> (2010), escrito por Davi Kopenawa em colaboração com o antropólogo Bruce Albert, apresenta a cosmovisão Yanomami e a maneira como esse povo compreende o mundo, a natureza, os espíritos e o papel dos seres humanos na Terra.</p><p>Kopenawa alerta para a devastação da Amazônia causada por garimpo, mineração, desmatamento e invasões. Para os Yanomami, a floresta é o que sustenta o céu; sem ela, o céu cairia, provocando a extinção de todas as formas de vida. Por isso, “a queda do céu” é uma metáfora para o colapso iminente do mundo se a floresta desaparecer.</p><p>Ele valoriza os antepassados e os ensinamentos dos xamãs. A expressão <b>“o futuro é ancestral”</b> sugere olhar para os lados e para trás, aprendendo com a sabedoria recebida, para seguir em frente.</p><h3>Respeito cultural e diálogo intercultural</h3><p>A Filosofia valoriza o encontro entre diferentes culturas. O <b>diálogo intercultural</b> é uma troca em que cada povo tem voz e seus conhecimentos e modos de vida são reconhecidos. Ele ajuda a resolver conflitos com <b>empatia e respeito</b>, sem preconceito.</p><div class="note"><b>Para lembrar:</b> respeitar uma cultura diferente não significa abandonar a própria; significa ouvir, dialogar e reconhecer a dignidade dos outros modos de vida.</div>`}
 ];
 const questions=[
 ["Qual é uma das perguntas centrais da Filosofia apresentada no capítulo?","Encontrar o sentido da vida.",["Descobrir como controlar o cosmos.","Encontrar o sentido da vida.","Provar que o ser humano é o centro do universo.","Eliminar todas as dúvidas."],1,"O texto relaciona a Filosofia à busca pelo sentido da vida.","sentido da vida"],
@@ -67,6 +74,60 @@ const questions=[
 ["O que as comunidades indígenas podem ensinar sobre a natureza, segundo Krenak?","A importância de preservar e viver em equilíbrio com ela.",["A explorar sem limites.","A importância de preservar e viver em equilíbrio com ela.","A separar a natureza da vida humana.","A abandonar os conhecimentos antigos."],1,"O texto destaca a preservação e a harmonia com a natureza.","preservar"],
 ["Qual é a principal mensagem ética do poema sobre o cosmos?","Cuidar da vida, das pessoas e do lugar onde vivemos.",["O universo deve responder tudo.","Cuidar da vida, das pessoas e do lugar onde vivemos.","O ser humano é dono do cosmos.","A felicidade depende de viajar ao espaço."],1,"O poema enfatiza o cuidado com o lugar, as pessoas e a própria vida.","cuidar"]
 ];
+
+function makeExtraQ(question, correct, wrong, hint, explanation) {
+  const opts = shuffle([correct, ...wrong]);
+  return [question, correct, opts, opts.indexOf(correct), explanation || correct, hint || correct];
+}
+questions.push(
+makeExtraQ("O que o texto diz que precisamos aprender ao contemplar o espaço infinito?","Olhar também para dentro de nós.",["Pensar que somos o centro do universo.","Desistir de procurar sentido para a vida.","Ignorar as outras pessoas."],"olhar para dentro de nós"),
+makeExtraQ("Segundo o texto, as ideias de qual filósofo convidam a refletir sobre a pequenez humana em relação ao todo?","Nietzsche.",["Albert Camus.","Søren Kierkegaard.","Ailton Krenak."],"Nietzsche"),
+makeExtraQ("Qual caminho pode ajudar a encontrar sabedoria e paz, segundo o texto?","O estudo da Filosofia, da Ética e a vivência da fé.",["A busca por dominar o universo.","A exploração dos recursos naturais.","A rejeição da convivência."],"Filosofia e Ética"),
+makeExtraQ("Como Kierkegaard é apresentado no material?","Como um dos precursores do existencialismo.",["Como autor de A queda do céu.","Como filósofo da cosmologia Yanomami.","Como poeta do texto sobre o cosmos."],"existencialismo"),
+makeExtraQ("O que o texto afirma sobre a angústia em Kierkegaard?","É natural diante da incerteza e da vastidão do cosmos.",["Deve ser sempre escondida.","É causada somente pela cultura.","Prova que a vida não tem valor."],"incerteza e vastidão do cosmos"),
+makeExtraQ("Qual atitude Camus propõe diante da ausência de respostas definitivas?","Reconhecer o paradoxo e aproveitar a liberdade.",["Esperar que o universo responda tudo.","Desistir de viver intensamente.","Impor uma única visão cultural."],"liberdade"),
+makeExtraQ("Como o texto define a revolta contra o absurdo?","Viver intensamente, mesmo sem um sentido pré-determinado.",["Lutar contra outras culturas.","Recusar qualquer escolha.","Evitar a convivência."],"viver intensamente"),
+makeExtraQ("O que, segundo Camus, pode tornar nossa passagem pela vida mais rica e significativa?","A solidariedade e os laços que cultivamos.",["A competição entre culturas.","A exploração da natureza.","A fama e o poder."],"solidariedade"),
+makeExtraQ("Quais perguntas aparecem na atividade da carta ao cosmos?","O que dizer sobre a humanidade e a vida na Terra; como enxergamos nosso lugar no universo; o que compartilhar com o cosmos.",["Como construir um foguete; como medir estrelas; como dominar planetas.","Qual é a cultura superior; quem deve governar; como evitar diferenças.","Como prever o futuro; como mudar o passado; como viver sem outras pessoas."],"humanidade, lugar no universo e existência"),
+makeExtraQ("No poema, quais ações o ser humano realiza para conhecer o cosmos?","Constrói telescópios, lança foguetes, viaja à Lua, mede o tempo e descobre planetas.",["Constrói florestas, planta rios e mede culturas.","Escreve leis, cria moedas e funda cidades.","Conversa com as estrelas e recebe respostas."],"telescópios e foguetes"),
+makeExtraQ("O que o cosmos faz diante das perguntas humanas no poema?","Não responde nada.",["Explica quem somos.","Mostra o sentido da vida.","Ensina como cuidar das pessoas."],"não responde"),
+makeExtraQ("Onde está o outro universo que o ser humano descobre no poema?","Dentro de si: em seus pensamentos, dúvidas e sonhos.",["Somente na Lua.","Em uma estrela distante.","Nas máquinas e telescópios."],"pensamentos, dúvidas e sonhos"),
+makeExtraQ("Como o poema compara viver com o cosmos?","Uma busca por equilíbrio e por ordem no meio do caos.",["Uma corrida para dominar o espaço.","Uma competição entre povos.","Uma tentativa de evitar todas as mudanças."],"equilíbrio e ordem"),
+makeExtraQ("Qual mensagem o poema apresenta sobre o cuidado?","É mais importante cuidar do lugar onde vive e das pessoas que ama do que apenas conhecer o céu.",["O conhecimento do céu torna desnecessário cuidar da Terra.","Somente os astronautas podem cuidar do planeta.","O cuidado com as pessoas não tem relação com a vida."],"cuidar do lugar onde vive"),
+makeExtraQ("Como o poema descreve a vida humana?","Passageira, preciosa e merecedora de ser bem vivida.",["Infinita e sem mudanças.","Sem valor diante do cosmos.","Igual à duração das estrelas."],"passageira e preciosa"),
+makeExtraQ("O que a atividade sobre a beleza do mundo diz sobre nossa história?","Quanto mais conhecemos nossa história, mais entendemos quem somos e podemos decidir quem queremos ser.",["Nossa história não influencia o presente.","Só o futuro determina quem somos.","A história de um povo deve ser esquecida."],"história e identidade"),
+makeExtraQ("Quais elementos são citados como parte da cultura?","Língua, religião, artes, tradições, leis e normas sociais.",["Somente roupas e comidas.","Apenas as leis e a economia.","Somente música e esportes."],"língua, religião, artes e tradições"),
+makeExtraQ("O que a cultura influencia, de acordo com a página?","Nossos relacionamentos, a relação com o ambiente, conhecimento, fé e ideias sobre bem e mal.",["Somente o idioma que falamos.","Apenas a aparência física.","Somente o clima de uma região."],"relações e visão de mundo"),
+makeExtraQ("Por que conhecer as raízes culturais é importante?","Ajuda a aprender sobre nós mesmos e a compreender quem queremos ser.",["Para considerar outras culturas inferiores.","Para impedir mudanças no futuro.","Para substituir todas as tradições."],"raízes culturais"),
+makeExtraQ("Como o capítulo caracteriza as diferentes visões de mundo?","Todas são igualmente válidas e complementares.",["Uma deve ser imposta às demais.","Somente a mais antiga é válida.","Todas precisam ser idênticas."],"válidas e complementares"),
+makeExtraQ("Qual frase resume a ideia de beleza e diversidade na página?","A beleza que o mundo tem é a quantidade de mundos que o mundo contém.",["A beleza está em todos pensarem da mesma maneira.","A cultura mais forte contém todas as outras.","O mundo tem apenas uma visão correta."],"quantidade de mundos"),
+makeExtraQ("Que problemas o desenvolvimento econômico também causou, segundo o texto?","Exploração excessiva dos recursos naturais e degradação do meio ambiente.",["Somente falta de descobertas científicas.","Fim das culturas tradicionais.","Redução de toda forma de conhecimento."],"exploração e degradação"),
+makeExtraQ("O que as culturas tradicionais, como as indígenas, ensinam sobre a relação com a natureza?","A importância de viver em equilíbrio com a natureza.",["A necessidade de explorar sem limites.","A separação entre seres humanos e natureza.","A ideia de que a natureza não tem valor."],"equilíbrio com a natureza"),
+makeExtraQ("Em qual obra Ailton Krenak apresenta a ideia de adiar o fim do mundo, citada na página?","Ideias para adiar o fim do mundo.",["A queda do céu.","O ser humano e o cosmos.","O amanhã não está à venda."],"Ideias para adiar o fim do mundo"),
+makeExtraQ("Qual obra de Krenak é citada ao falar das comunidades indígenas como guardiãs do planeta?","O amanhã não está à venda.",["A queda do céu.","O absurdo da existência.","O ser humano e o cosmos."],"O amanhã não está à venda"),
+makeExtraQ("O que significa cosmologia no trecho sobre os povos indígenas?","Uma visão de mundo que integra a natureza à existência humana.",["Uma ciência que estuda somente estrelas.","Uma regra que separa humanos e animais.","Uma forma de explorar rios e montanhas."],"visão de mundo"),
+makeExtraQ("Segundo a página, como devem ser entendidos humanos, animais, plantas, rios e montanhas?","Como partes de um mesmo sistema de vida.",["Como elementos sem relação entre si.","Como recursos destinados somente à economia.","Como mundos que não podem coexistir."],"mesmo sistema de vida"),
+makeExtraQ("Quem é Davi Kopenawa no texto?","Líder e xamã do povo indígena Yanomami.",["Antropólogo que escreveu sozinho o poema.","Filósofo grego do existencialismo.","Escritor que desenvolveu a teoria do absurdo."],"líder e xamã Yanomami"),
+makeExtraQ("Com quem Davi Kopenawa escreveu A queda do céu?","Com o antropólogo Bruce Albert.",["Com Albert Camus.","Com Søren Kierkegaard.","Com Ailton Krenak."],"Bruce Albert"),
+makeExtraQ("Qual é o foco central de A queda do céu, segundo a página?","A cosmovisão Yanomami.",["A história do existencialismo.","A exploração econômica do cosmos.","A origem das leis brasileiras."],"cosmovisão Yanomami"),
+makeExtraQ("Quais ações são citadas como causas da devastação da Amazônia?","Garimpo, mineração, desmatamento e invasões.",["Pesquisa científica e educação.","Diálogo intercultural e preservação.","Tradições, artes e costumes."],"garimpo e desmatamento"),
+makeExtraQ("Por que a visão de mundo dos chamados “brancos” ameaça a vida, segundo Kopenawa?","Porque a exploração e a destruição da floresta ameaçam indígenas e todo o planeta.",["Porque valoriza a preservação da floresta.","Porque reconhece todos os modos de vida.","Porque impede a mineração e o desmate."],"destruição da floresta"),
+makeExtraQ("O que a floresta representa para os Yanomami?","É o que sustenta o céu e a vida.",["Um recurso sem relação com a vida.","Um lugar sem importância espiritual.","Uma barreira para o conhecimento."],"sustenta o céu"),
+makeExtraQ("Qual é o papel dos antepassados e dos xamãs destacado por Kopenawa?","Transmitir sabedoria e ensinamentos às gerações seguintes.",["Impedir que os jovens aprendam.","Substituir todas as culturas.","Promover a exploração da floresta."],"sabedoria ancestral"),
+makeExtraQ("O que Kopenawa sugere para seguir em frente?","Olhar para os lados e para trás, aprendendo com a sabedoria ancestral.",["Olhar apenas para a frente e para si mesmo.","Esquecer os ensinamentos dos antepassados.","Abandonar as tradições."],"olhar para trás e para os lados"),
+makeExtraQ("O que a Filosofia valoriza ao estudar o respeito cultural?","Os encontros entre diferentes e o diálogo entre tradições.",["A imposição de uma cultura única.","A ideia de que só existe um jeito certo de viver.","A eliminação das diferenças."],"encontro dos diferentes"),
+makeExtraQ("O que é diálogo intercultural?","Uma troca em que cada povo tem voz e seus conhecimentos e modos de vida são reconhecidos.",["Uma cultura falando por todas as outras.","Uma disputa para escolher a cultura superior.","Uma conversa que exclui tradições diferentes."],"cada povo tem voz"),
+makeExtraQ("Quais atitudes são fundamentais para resolver conflitos no diálogo intercultural?","Empatia e respeito.",["Preconceito e imposição.","Indiferença e competição.","Silêncio e exclusão."],"empatia e respeito"),
+makeExtraQ("O que podemos fazer ao refletir criticamente sobre nossa própria cultura?","Compreender e aceitar outras visões de mundo sem preconceito.",["Considerar nossa cultura a única correta.","Impedir que outras tradições sejam ouvidas.","Desvalorizar conhecimentos diferentes."],"sem preconceito")
+);
+
+
+questions.push(
+makeExtraQ("Como o fato de ter nascido no Brasil pode interferir na maneira como vemos o mundo?","Nossas raízes culturais, crenças, valores e costumes influenciam nossa visão de mundo.",["Não interfere em nossa maneira de pensar.","Determina que todas as pessoas tenham a mesma visão.","Impede conhecer outras culturas."],"raízes culturais, crenças, valores e costumes"),
+makeExtraQ("Como a Terra é considerada na perspectiva apresentada por Ailton Krenak?","Como uma mãe e um organismo vivo que deve ser respeitado.",["Como uma máquina sem vida.","Como um recurso que pode ser explorado sem limites.","Como um objeto separado da humanidade."],"mãe e organismo vivo"),
+makeExtraQ("Qual obra de Ailton Krenak, publicada em 2019, é citada na página sobre a relação entre humanidade e natureza?","Ideias para adiar o fim do mundo.",["O amanhã não está à venda.","A queda do céu.","O ser humano e o cosmos."],"Ideias para adiar o fim do mundo")
+);
+
 const tf=[
 ["Qual filósofo é apresentado como precursor do existencialismo?","Søren Kierkegaard.",true,"O texto o apresenta como um dos precursores do existencialismo."],
 ["O que Camus chama de absurdo da existência?","A certeza de que o universo oferece respostas definitivas.",false,"O absurdo é o conflito entre a busca humana por sentido e a ausência de respostas definitivas."],
@@ -81,8 +142,50 @@ const tf=[
 ["O que a expressão “a queda do céu” representa?","O colapso do mundo se a floresta continuar sendo destruída.",true,"É a metáfora explicada no trecho sobre os Yanomami."],
 ["O que é diálogo intercultural?","Uma troca em que cada povo tem voz e seus conhecimentos são reconhecidos.",true,"Essa é a definição apresentada no material."]
 ];
-const pairs=[["Quem foi Kierkegaard?","Filósofo ligado ao existencialismo e à vida autêntica."],["O que Camus chama de absurdo?","Conflito entre busca de sentido e falta de respostas definitivas."],["O que Krenak ensina sobre a Terra?","A Terra é um organismo vivo e deve ser respeitada."],["O que é cosmologia indígena?","Visão que integra natureza e existência humana."],["O que é diálogo intercultural?","Troca entre culturas baseada em empatia e respeito."],["O que é cultura?","Língua, religião, artes, tradições, leis e normas."],["O que é solidariedade?","Laços de convivência e cuidado com o mundo."],["O que significa futuro ancestral?","Aprender com a sabedoria dos antepassados para seguir em frente."]];
-const relate=[["Angústia","Sentimento que pode despertar a busca por uma vida autêntica"],["Absurdo","Conflito entre a busca por sentido e a falta de respostas definitivas"],["Revolta contra o absurdo","Viver intensamente e construir uma existência autêntica"],["Cosmologia","Visão de mundo que integra a natureza à vida"],["Empatia","Capacidade de considerar a perspectiva do outro"],["Futuro ancestral","Aprender com os antepassados para seguir em frente"]];
+
+tf.push(
+["O que Kierkegaard afirma sobre a angústia diante da incerteza e da vastidão do cosmos?","É natural senti-la, e ela pode despertar a busca por uma vida autêntica.",true,"O texto apresenta a angústia como impulso para buscar uma vida autêntica."],
+["Como o material define o absurdo da existência em Camus?","É o conflito entre a necessidade humana de significado e a ausência de respostas definitivas.",true,"Essa é a definição apresentada no texto."],
+["O que Camus chama de revolta contra o absurdo?","Viver intensamente e construir uma existência autêntica, mesmo sem sentido pré-determinado.",true,"Essa é a explicação do livro."],
+["O que o poema afirma ser mais importante do que conhecer o céu?","Cuidar do lugar onde vive e das pessoas que ama.",true,"O poema destaca o cuidado com o lugar e com as pessoas."],
+["Onde o ser humano encontra o outro universo descrito no poema?","Em seus pensamentos, dúvidas e sonhos.",true,"O poema diz que o outro universo mora dentro de nós."],
+["O que o capítulo diz sobre as diferentes culturas?","Todas são igualmente válidas e complementares.",true,"O texto afirma isso expressamente."],
+["Quais aspectos são influenciados pela cultura?","Relacionamentos, ambiente, conhecimento, fé e ideias sobre o bem e o mal.",true,"A página apresenta todos esses aspectos."],
+["O que Ailton Krenak afirma sobre a Terra?","A Terra é um organismo vivo, e não apenas um recurso natural.",true,"É uma das ideias centrais da página."],
+["O que Krenak sugere sobre a relação humana com o planeta?","Reaprender a viver em harmonia com o planeta, em vez de tentar dominá-lo.",true,"Essa orientação aparece no texto."],
+["O que a cosmologia indígena descrita no livro propõe?","Integrar a natureza à existência humana, entendendo tudo como parte de um sistema de vida.",true,"O texto explica essa visão integrada."],
+["Quem escreveu A queda do céu em colaboração com Bruce Albert?","Davi Kopenawa, líder e xamã Yanomami.",true,"A página identifica os autores e o papel de Kopenawa."],
+["O que representa a expressão “a queda do céu” para os Yanomami?","O colapso do mundo se a floresta continuar sendo destruída.",true,"A metáfora é explicada no material."],
+["Qual é a importância da floresta para a visão Yanomami apresentada?","A floresta sustenta o céu e, sem ela, todas as formas de vida ficam ameaçadas.",true,"A página explica a metáfora da floresta que sustenta o céu."],
+["O que Kopenawa destaca sobre os antepassados?","A sabedoria transmitida aos descendentes e os ensinamentos dos xamãs são importantes.",true,"O texto destaca a ancestralidade."],
+["O que significa diálogo intercultural?","Uma troca em que cada povo tem voz e seus conhecimentos são reconhecidos.",true,"Essa é a definição da página."],
+["Quais atitudes ajudam a resolver conflitos e disputas entre culturas?","Empatia e respeito.",true,"O material destaca essas duas atitudes."],
+["O que o texto diz sobre o desenvolvimento econômico?","Trouxe benefícios, mas também problemas como exploração dos recursos naturais e degradação ambiental.",true,"A página apresenta os dois lados."],
+["Qual obra de Krenak é citada ao abordar comunidades indígenas como guardiãs do planeta?","O amanhã não está à venda.",true,"A obra é citada diretamente na página."],
+["O que o texto diz que as culturas tradicionais ensinam?","A importância de viver em equilíbrio com a natureza.",true,"Essa é a crítica à noção de progresso exploratório."],
+["O que a Filosofia ajuda a fazer diante de diferentes visões de mundo?","Refletir criticamente sobre nossa própria cultura e aceitar outras visões sem preconceito.",true,"Essa é a função destacada na seção de respeito cultural."]
+);
+
+const pairs=[
+["Quem foi Kierkegaard?","Filósofo ligado ao existencialismo e à vida autêntica."],
+["O que Camus chama de absurdo?","Conflito entre a busca humana por sentido e a falta de respostas definitivas."],
+["O que é revolta contra o absurdo?","Viver intensamente e construir uma existência autêntica."],
+["O que é cultura?","Língua, religião, artes, tradições, leis e normas sociais."],
+["O que é cosmologia indígena?","Visão que integra a natureza à existência humana."],
+["O que Krenak ensina sobre a Terra?","A Terra é um organismo vivo e deve ser respeitada."],
+["O que representa a queda do céu?","O colapso do mundo caso a floresta seja destruída."],
+["O que é diálogo intercultural?","Troca em que cada povo tem voz, com empatia e respeito."]
+];
+const relate=[
+["Angústia","Sentimento que pode despertar a busca por uma vida autêntica"],
+["Absurdo","Conflito entre a busca por sentido e a falta de respostas definitivas"],
+["Revolta contra o absurdo","Viver intensamente e construir uma existência autêntica"],
+["Cosmologia","Visão de mundo que integra a natureza à existência humana"],
+["Empatia","Capacidade de considerar a perspectiva do outro"],
+["Futuro ancestral","Aprender com os antepassados para seguir em frente"],
+["Cultura","Língua, religião, artes, tradições, leis e normas sociais"],
+["Solidariedade","Laços de convivência e cuidado com o mundo"]
+];
 function shuffle(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
 function show(id){stopTimer();document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');screen=id;setMusic(id);if(id==='summary')renderSummary()}
 function renderSummary(){$('sumtabs').innerHTML=summaries.map((s,i)=>`<button class="tab ${i===0?'on':''}" onclick="selectSummary(${i},this)">${s.t}</button>`).join('');$('sumcontent').innerHTML=summaryHTML(summaries[0])}
@@ -97,24 +200,215 @@ function nextQ(){idx++;seconds=level==='easy'?90:level==='normal'?60:30;renderQ(
 function useHint(){if(screen!=='quiz'||hintUsed)return;hintUsed=true;let q=queue[idx];$('feedback').textContent='Dica: pense em '+(q[5]||q[1])+'.'}
 function skipQuestion(){if(!timerId)return;stopTimer();let q=queue.splice(idx,1)[0];queue.push(q);seconds=level==='easy'?90:level==='normal'?60:30;renderQ()}
 function finish(win){stopTimer();show('result');$('resultTitle').textContent=win?'Jornada concluída!':'Fim das vidas';$('resultText').textContent=win?'Você respondeu a todas as perguntas. Continue revisando para fixar as ideias.':'Você ficou sem vidas. Volte ao resumo e tente novamente!';$('correctN').textContent=correct;$('answeredN').textContent=answered;$('accuracy').textContent=(answered?Math.round(correct/answered*100):0)+'%'}
-function startMemory(){show('minigame');$('gameLabel').textContent='Memória';$('gameTitle').textContent='Encontre os pares';$('gameFeedback').textContent='';let chosen=shuffle(pairs).slice(0,6),cards=shuffle(chosen.flatMap((p,i)=>[{id:i,text:p[0]},{id:i,text:p[1]}]));let opened=[],matched=0,lock=false;$('gameBody').innerHTML='<p>Toque em duas cartas para encontrar conceito e explicação correspondentes.</p><div class="memory" id="memoryGrid">'+cards.map((c,i)=>`<button class="memcard" data-i="${i}" onclick="flipCard(${i})">✦</button>`).join('')+'</div><p id="memCount">Pares encontrados: 0/6</p>';window.mem={cards,opened,matched,lock};window.flipCard=function(i){let m=window.mem;if(m.lock||m.opened.includes(i)||$('memoryGrid').children[i].classList.contains('matched'))return;let el=$('memoryGrid').children[i];el.textContent=m.cards[i].text;el.classList.add('open');m.opened.push(i);if(m.opened.length===2){m.lock=true;let [a,b]=m.opened;if(m.cards[a].id===m.cards[b].id){$('memoryGrid').children[a].classList.add('matched');$('memoryGrid').children[b].classList.add('matched');m.matched++;$('memCount').textContent='Pares encontrados: '+m.matched+'/6';effect(true);m.opened=[];m.lock=false;if(m.matched===6)$('gameFeedback').textContent='Parabéns! Você encontrou todos os pares.'}else{effect(false);setTimeout(()=>{[a,b].forEach(j=>{$('memoryGrid').children[j].textContent='✦';$('memoryGrid').children[j].classList.remove('open')});m.opened=[];m.lock=false},900)}}}}
-function startTF(){show('minigame');$('gameLabel').textContent='Verdadeiro ou falso';$('gameTitle').textContent='Pergunta + resposta proposta';let list=shuffle(tf);let i=0,score=0;function draw() {if(i>=list.length){$('gameBody').innerHTML='<h3>Desafio concluído!</h3><p>Acertos: '+score+'/'+list.length+'</p><button class="btn primary" onclick="startTF()">Jogar novamente</button>';$('gameFeedback').textContent='';return}let q=list[i];$('gameBody').innerHTML='<div class="pill">Questão '+(i+1)+'/'+list.length+'</div><h3>'+q[0]+'</h3><div class="tfanswer">'+q[1]+'</div><div class="grid" style="grid-template-columns:1fr 1fr"><button class="btn primary" onclick="judge(true)">✓ Verdadeiro</button><button class="btn" onclick="judge(false)">✕ Falso</button></div>';}$('gameFeedback').textContent='';window.judge=function(v){let q=list[i],ok=v===q[2];if(ok){score++;effect(true);$('gameFeedback').textContent='Correto! '+q[3]}else{effect(false);$('gameFeedback').textContent='Não foi dessa vez. '+q[3]}$('gameBody').querySelectorAll('button').forEach(b=>b.disabled=true);i++;setTimeout(draw,1200)};draw()}
-function startQA(){show('minigame');$('gameLabel').textContent='Associe pergunta e resposta';$('gameTitle').textContent='Qual resposta completa a pergunta?';let ps=shuffle(pairs),i=0,score=0;function draw(){if(i>=ps.length){$('gameBody').innerHTML='<h3>Rodada concluída!</h3><p>Você acertou '+score+'/'+ps.length+'.</p><button class="btn primary" onclick="startQA()">Jogar novamente</button>';return}let p=ps[i],opts=shuffle([p[1],...shuffle(ps.filter(x=>x!==p)).slice(0,3).map(x=>x[1])]);$('gameBody').innerHTML='<div class="pill">'+(i+1)+'/'+ps.length+'</div><h3>'+p[0]+'</h3><div class="answers">'+opts.map((o,j)=>`<button class="answer" onclick="chooseQA(${j})">${o}</button>`).join('')+'</div>'}window.chooseQA=j=>{let ok=$('gameBody').querySelectorAll('button')[j].textContent===ps[i][1];if(ok){score++;effect(true);$('gameFeedback').textContent='Isso mesmo!'}else{effect(false);$('gameFeedback').textContent='Resposta correta: '+ps[i][1]}$('gameBody').querySelectorAll('button').forEach(b=>b.disabled=true);i++;setTimeout(draw,1050)};draw()}
-function startMatch(){show('minigame');$('gameLabel').textContent='Associe pergunta e resposta';$('gameTitle').textContent='Monte os pares corretos';let ps=shuffle(pairs).slice(0,6),left=shuffle(ps.map((p,i)=>({id:i,t:p[0]}))),right=shuffle(ps.map((p,i)=>({id:i,t:p[1]})));let sel=null,done=0;$('gameBody').innerHTML='<p>Escolha um conceito à esquerda e sua explicação à direita.</p><div class="matchgrid"><div>'+left.map((p,i)=>`<button class="matchbtn" id="ml${i}" onclick="pickL(${i})">${p.t}</button>`).join('')+'</div><div>'+right.map((p,i)=>`<button class="matchbtn" id="mr${i}" onclick="pickR(${i})">${p.t}</button>`).join('')+'</div></div>';window.pickL=i=>{if($('ml'+i).classList.contains('done'))return;document.querySelectorAll('.matchbtn').forEach(b=>b.classList.remove('selected'));$('ml'+i).classList.add('selected');sel=i};window.pickR=i=>{if(sel===null||$('mr'+i).classList.contains('done'))return;let l=left[sel],r=right[i];if(l.id===r.id){$('ml'+sel).classList.add('done');$('mr'+i).classList.add('done');done++;effect(true);$('gameFeedback').textContent='Boa associação! '+done+'/6';sel=null;if(done===6)$('gameFeedback').textContent='Excelente! Todos os pares foram associados.'}else{effect(false);$('gameFeedback').textContent='Ainda não. Pense no significado de cada conceito.'}}}
-function startRelate(){show('minigame');$('gameLabel').textContent='Relacione as palavras';$('gameTitle').textContent='Qual conceito combina?';let qs=shuffle(relate);let i=0,score=0;function draw(){if(i>=qs.length){$('gameBody').innerHTML='<h3>Fim!</h3><p>Você acertou '+score+'/'+qs.length+'.</p><button class="btn primary" onclick="startRelate()">Jogar novamente</button>';return}let q=qs[i];$('gameBody').innerHTML='<div class="pill">'+(i+1)+'/'+qs.length+'</div><h3>'+q[1]+'</h3><div class="answers">'+shuffle(relate.map(x=>x[0])).map(w=>`<button class="answer" onclick="choose('${w.replace(/'/g,"\\'")}')">${w}</button>`).join('')+'</div>'}window.choose=w=>{let ok=w===qs[i][0];if(ok){score++;effect(true);$('gameFeedback').textContent='Correto!'}else{effect(false);$('gameFeedback').textContent='A resposta era: '+qs[i][0]}$('gameBody').querySelectorAll('button').forEach(b=>b.disabled=true);i++;setTimeout(draw,900)};draw()}
-function startWords(){show('minigame');$('gameLabel').textContent='Caça-palavras';$('gameTitle').textContent='Encontre os conceitos';let words=['ETICA','CULTURA','COSMOS','EMPATIA','CAMUS','KRENAK','ANGUSTIA','RESPEITO'];let grid=Array.from({length:10},()=>Array(10).fill(''));let placements=[];words.forEach((w,k)=>{let row=k, col=Math.floor(Math.random()*(10-w.length));for(let j=0;j<w.length;j++)grid[row][col+j]=w[j];placements.push({w,row,col})});let letters='ABCDEF GHIJKLMN OPQRSTUV XYZ'.replace(/\s/g,'');grid=grid.map(row=>row.map(c=>c||letters[Math.floor(Math.random()*letters.length)]));let found=[];$('gameBody').innerHTML='<p>Toque nas letras de cada palavra na ordem, da esquerda para a direita.</p><div class="wordgrid">'+grid.flat().map((c,i)=>`<button class="letter" onclick="tapLetter(${Math.floor(i/10)},${i%10},this)">${c}</button>`).join('')+'</div><div class="words">'+words.map(w=>`<span class="wordtag" id="w${w}">${w}</span>`).join('')+'</div>';let selected=[];window.tapLetter=(r,c,b)=>{if(b.classList.contains('found'))return;selected.push({r,c,b});b.classList.add('selected');let s=selected.map(x=>grid[x.r][x.c]).join('');let match=words.find(w=>w===s&&!found.includes(w));if(match){found.push(match);selected.forEach(x=>{x.b.classList.remove('selected');x.b.classList.add('found')});$('w'+match).style.textDecoration='line-through';$('gameFeedback').textContent='Encontrou '+match+'! '+found.length+'/'+words.length;effect(true);selected=[];if(found.length===words.length)$('gameFeedback').textContent='Parabéns! Todas as palavras encontradas.'}else if(!words.some(w=>w.startsWith(s))){selected.forEach(x=>x.b.classList.remove('selected'));selected=[]}}}
-function startCross(){show('minigame');$('gameLabel').textContent='Palavras cruzadas';$('gameTitle').textContent='Complete os conceitos';let clues=[['Corrente filosófica ligada a Kierkegaard','EXISTENCIALISMO'],['Sentimento que pode impulsionar a busca por vida autêntica','ANGUSTIA'],['Troca entre culturas com empatia e respeito','DIALOGO'],['Visão de mundo que integra natureza e existência humana','COSMOLOGIA'],['Cuidado e laços que tornam a vida significativa','SOLIDARIEDADE'],['Filósofo brasileiro que diz que o futuro é ancestral','KRENAK']];$('gameBody').innerHTML='<p>Digite a palavra que corresponde a cada pista.</p>'+clues.map((c,i)=>`<div class="crossrow"><label>${i+1}. ${c[0]}</label><input id="cw${i}" autocomplete="off"></div>`).join('')+'<button class="btn primary" onclick="checkCross()">Conferir respostas</button>';window.checkCross=()=>{let score=0;clues.forEach((c,i)=>{let v=$('cw'+i).value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/\s/g,'');if(v===c[1]){score++;$('cw'+i).style.borderColor='#69c796'}else $('cw'+i).style.borderColor='#ef795e'});$('gameFeedback').textContent='Você acertou '+score+' de '+clues.length+'. Revise as respostas marcadas.';effect(score===clues.length)}}
-function setMusic(scene){music.scene=scene;music.pattern=shuffle([0,1,2,3,4,5,6]);music.step=0;if(music.ctx&&music.on)music.play()}
-const music={ctx:null,master:null,on:false,muted:false,vol:.28,scene:'home',pattern:[0,1,2,3],step:0,interval:null};
-function initAudio(){if(music.ctx)return;let C=window.AudioContext||window.webkitAudioContext;if(!C)return;music.ctx=new C();music.master=music.ctx.createGain();music.master.gain.value=music.vol;music.master.connect(music.ctx.destination)}
-function tone(freq,dur,wave='sine',gain=.06,delay=0){if(!music.ctx)return;let o=music.ctx.createOscillator(),g=music.ctx.createGain();o.type=wave;o.frequency.value=freq;g.gain.setValueAtTime(.0001,music.ctx.currentTime+delay);g.gain.exponentialRampToValueAtTime(gain,music.ctx.currentTime+delay+.08);g.gain.exponentialRampToValueAtTime(.0001,music.ctx.currentTime+delay+dur);o.connect(g);g.connect(music.master);o.start(music.ctx.currentTime+delay);o.stop(music.ctx.currentTime+delay+dur+.03)}
-const scales={home:[196,220,261.6,293.7,329.6,392],summary:[261.6,329.6,392,440,523.3],quiz:[196,246.9,293.7,370,440],memory:[293.7,349.2,440,523.3],minigame:[220,261.6,329.6,392],result:[261.6,329.6,392,523.3]};
-function musicTick(){if(!music.on||music.muted||!music.ctx)return;let sc=music.scene.startsWith('summary')?scales.summary:(scales[music.scene]||scales.minigame),n=sc[music.pattern[music.step%music.pattern.length]%sc.length];tone(n,2.1,'sine',.035,0);tone(n/2,2.5,'triangle',.022,.04);if(music.step%3===0)tone(n*1.5,1.3,'sine',.012,.1);music.step++}
-function playMusic(){initAudio();if(!music.ctx)return;music.ctx.resume();if(music.interval)clearInterval(music.interval);music.on=true;musicTick();music.interval=setInterval(musicTick,1550);$('musicToggle').textContent='♫'}
-function stopMusic(){music.on=false;if(music.interval)clearInterval(music.interval);music.interval=null;$('musicToggle').textContent='♪'}
-function effect(ok){initAudio();if(!music.ctx)return;music.ctx.resume();if(ok){tone(659,0.24,'triangle',.13);tone(880,0.32,'sine',.11,.12)}else{tone(180,0.28,'sawtooth',.09);tone(140,0.35,'triangle',.08,.14)}}
+function startMemory(){show('minigame');setMusic('memory');$('gameLabel').textContent='Memória';$('gameTitle').textContent='Encontre os pares';$('gameFeedback').textContent='';let chosen=shuffle(pairs),cards=shuffle(chosen.flatMap((p,i)=>[{id:i,text:p[0]},{id:i,text:p[1]}]));let opened=[],matched=0,lock=false;$('gameBody').innerHTML='<p>Toque em duas cartas para encontrar conceito e explicação correspondentes.</p><div class="memory" id="memoryGrid">'+cards.map((c,i)=>`<button class="memcard" data-i="${i}" onclick="flipCard(${i})">✦</button>`).join('')+'</div><p id="memCount">Pares encontrados: 0/8</p>';window.mem={cards,opened,matched,lock};window.flipCard=function(i){let m=window.mem;if(m.lock||m.opened.includes(i)||$('memoryGrid').children[i].classList.contains('matched'))return;let el=$('memoryGrid').children[i];el.textContent=m.cards[i].text;el.classList.add('open');m.opened.push(i);if(m.opened.length===2){m.lock=true;let [a,b]=m.opened;if(m.cards[a].id===m.cards[b].id){$('memoryGrid').children[a].classList.add('matched');$('memoryGrid').children[b].classList.add('matched');m.matched++;$('memCount').textContent='Pares encontrados: '+m.matched+'/'+pairs.length;effect(true);m.opened=[];m.lock=false;if(m.matched===pairs.length)$('gameFeedback').textContent='Parabéns! Você encontrou todos os pares.'}else{effect(false);setTimeout(()=>{[a,b].forEach(j=>{$('memoryGrid').children[j].textContent='✦';$('memoryGrid').children[j].classList.remove('open')});m.opened=[];m.lock=false},900)}}}}
+function startTF(){show('minigame');setMusic('truefalse');$('gameLabel').textContent='Verdadeiro ou falso';$('gameTitle').textContent='Pergunta + resposta proposta';let list=shuffle(tf);let i=0,score=0;function draw() {if(i>=list.length){$('gameBody').innerHTML='<h3>Desafio concluído!</h3><p>Acertos: '+score+'/'+list.length+'</p><button class="btn primary" onclick="startTF()">Jogar novamente</button>';$('gameFeedback').textContent='';return}let q=list[i];window.currentTF=q;$('gameBody').innerHTML='<div class="pill">Questão '+(i+1)+'/'+list.length+'</div><h3>'+q[0]+'</h3><div class="tfanswer">'+q[1]+'</div><div class="grid" style="grid-template-columns:1fr 1fr"><button class="btn primary" onclick="judge(true)">✓ Verdadeiro</button><button class="btn" onclick="judge(false)">✕ Falso</button></div>';}$('gameFeedback').textContent='';window.judge=function(v){let q=list[i],ok=v===q[2];if(ok){score++;effect(true);$('gameFeedback').textContent='Correto! '+q[3]}else{effect(false);$('gameFeedback').textContent='Não foi dessa vez. '+q[3]}$('gameBody').querySelectorAll('button').forEach(b=>b.disabled=true);i++;setTimeout(draw,1200)};draw()}
+function startQA(){show('minigame');setMusic('association');$('gameLabel').textContent='Associe pergunta e resposta';$('gameTitle').textContent='Qual resposta completa a pergunta?';let ps=shuffle(pairs),i=0,score=0;function draw(){if(i>=ps.length){$('gameBody').innerHTML='<h3>Rodada concluída!</h3><p>Você acertou '+score+'/'+ps.length+'.</p><button class="btn primary" onclick="startQA()">Jogar novamente</button>';return}let p=ps[i],opts=shuffle([p[1],...shuffle(ps.filter(x=>x!==p)).slice(0,3).map(x=>x[1])]);window.currentQA=p;window.currentQAOptions=opts;$('gameBody').innerHTML='<div class="pill">'+(i+1)+'/'+ps.length+'</div><h3>'+p[0]+'</h3><div class="answers">'+opts.map((o,j)=>`<button class="answer" onclick="chooseQA(${j})">${o}</button>`).join('')+'</div>'}window.chooseQA=j=>{let ok=$('gameBody').querySelectorAll('button')[j].textContent===ps[i][1];if(ok){score++;effect(true);$('gameFeedback').textContent='Isso mesmo!'}else{effect(false);$('gameFeedback').textContent='Resposta correta: '+ps[i][1]}$('gameBody').querySelectorAll('button').forEach(b=>b.disabled=true);i++;setTimeout(draw,1050)};draw()}
+function startMatch(){show('minigame');setMusic('columns');$('gameLabel').textContent='Ligue as colunas';$('gameTitle').textContent='Monte os pares corretos';let ps=shuffle(pairs),left=shuffle(ps.map((p,i)=>({id:i,t:p[0]}))),right=shuffle(ps.map((p,i)=>({id:i,t:p[1]})));let sel=null,done=0;window.columnGame={left,right};$('gameBody').innerHTML='<p>Escolha um conceito à esquerda e sua explicação à direita.</p><div class="matchgrid"><div>'+left.map((p,i)=>`<button class="matchbtn" id="ml${i}" onclick="pickL(${i})">${p.t}</button>`).join('')+'</div><div>'+right.map((p,i)=>`<button class="matchbtn" id="mr${i}" onclick="pickR(${i})">${p.t}</button>`).join('')+'</div></div>';window.pickL=i=>{if($('ml'+i).classList.contains('done'))return;document.querySelectorAll('.matchbtn').forEach(b=>b.classList.remove('selected'));$('ml'+i).classList.add('selected');sel=i};window.pickR=i=>{if(sel===null||$('mr'+i).classList.contains('done'))return;let l=left[sel],r=right[i];if(l.id===r.id){$('ml'+sel).classList.add('done');$('mr'+i).classList.add('done');done++;effect(true);$('gameFeedback').textContent='Boa associação! '+done+'/'+pairs.length;sel=null;if(done===pairs.length)$('gameFeedback').textContent='Excelente! Todos os pares foram associados.'}else{effect(false);$('gameFeedback').textContent='Ainda não. Pense no significado de cada conceito.'}}}
+function startRelate(){show('minigame');setMusic('relate');$('gameLabel').textContent='Relacione as palavras';$('gameTitle').textContent='Qual conceito combina?';let qs=shuffle(relate);let i=0,score=0;function draw(){if(i>=qs.length){$('gameBody').innerHTML='<h3>Fim!</h3><p>Você acertou '+score+'/'+qs.length+'.</p><button class="btn primary" onclick="startRelate()">Jogar novamente</button>';return}let q=qs[i];window.currentRelate=q;$('gameBody').innerHTML='<div class="pill">'+(i+1)+'/'+qs.length+'</div><h3>'+q[1]+'</h3><div class="answers">'+shuffle(relate.map(x=>x[0])).map(w=>`<button class="answer" onclick="choose('${w.replace(/'/g,"\\'")}')">${w}</button>`).join('')+'</div>'}window.choose=w=>{let ok=w===qs[i][0];if(ok){score++;effect(true);$('gameFeedback').textContent='Correto!'}else{effect(false);$('gameFeedback').textContent='A resposta era: '+qs[i][0]}$('gameBody').querySelectorAll('button').forEach(b=>b.disabled=true);i++;setTimeout(draw,900)};draw()}
+function startWords(){
+ show('minigame');setMusic('wordsearch');$('gameLabel').textContent='Caça-palavras';$('gameTitle').textContent='Encontre os conceitos do capítulo';
+ const words=['ETICA','CULTURA','COSMOS','EMPATIA','CAMUS','KRENAK','ANGUSTIA','RESPEITO','LIBERDADE','ANCESTRAL'];
+ const N=12,grid=Array.from({length:N},()=>Array(N).fill('')),placements=[];
+ const alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+ words.forEach((w,k)=>{
+   let placed=false;
+   for(let tries=0;tries<250&&!placed;tries++){
+     const vertical=(k%2===1),r=Math.floor(Math.random()*(vertical?N-w.length+1:N)),c=Math.floor(Math.random()*(vertical?N:N-w.length+1));
+     let ok=true;for(let j=0;j<w.length;j++){let rr=r+(vertical?j:0),cc=c+(vertical?0:j);if(grid[rr][cc]&&grid[rr][cc]!==w[j]){ok=false;break}}
+     if(ok){for(let j=0;j<w.length;j++){let rr=r+(vertical?j:0),cc=c+(vertical?0:j);grid[rr][cc]=w[j]}placements.push({w,r,c,vertical});placed=true}
+   }
+ });
+ // If random intersections prevent a word from being placed, reserve an unused row for it.
+ words.forEach(w=>{
+   if(placements.some(p=>p.w===w))return;
+   for(let rr=0;rr<N;rr++){
+     let ok=true;for(let j=0;j<w.length;j++)if(grid[rr][j]&&grid[rr][j]!==w[j])ok=false;
+     if(ok){for(let j=0;j<w.length;j++)grid[rr][j]=w[j];placements.push({w,r:rr,c:0,vertical:false});break}
+   }
+ });
+ grid.forEach(row=>row.forEach((v,j)=>{if(!v)row[j]=alphabet[Math.floor(Math.random()*alphabet.length)]}));
+ window.wordSearchPlacements=placements;
+ let selected=[],found=[];
+ $('gameFeedback').textContent='';
+ $('gameBody').innerHTML='<p>As palavras aparecem na horizontal ou na vertical. Toque nas letras em sequência para formar uma palavra.</p><div class="wordgrid" id="wordGrid" style="grid-template-columns:repeat(12,1fr)">'+grid.flat().map((ch,i)=>`<button class="letter" data-r="${Math.floor(i/N)}" data-c="${i%N}" onclick="tapWordLetter(${Math.floor(i/N)},${i%N},this)">${ch}</button>`).join('')+'</div><div class="words">'+words.map(w=>`<span class="wordtag" id="w${w}">${w}</span>`).join('')+'</div><p id="wordProgress">Encontradas: 0/${words.length}</p>';
+ window.tapWordLetter=(r,c,b)=>{
+   
+   if(selected.length){let last=selected[selected.length-1];let dist=Math.abs(last.r-r)+Math.abs(last.c-c);if(dist!==1){selected.forEach(x=>x.b.classList.remove('selected'));selected=[]}}
+   selected.push({r,c,b});b.classList.add('selected');
+   const str=selected.map(x=>grid[x.r][x.c]).join('');
+   const foundWord=words.find(w=>w===str&&!found.includes(w));
+   if(foundWord){
+     found.push(foundWord);selected.forEach(x=>{x.b.classList.remove('selected');x.b.classList.add('found')});
+     $('w'+foundWord).style.textDecoration='line-through';$('wordProgress').textContent='Encontradas: '+found.length+'/'+words.length;
+     $('gameFeedback').textContent='Encontrou '+foundWord+'!';effect(true);selected=[];
+     if(found.length===words.length)$('gameFeedback').textContent='Excelente! Você encontrou todas as palavras.'
+   }else if(!words.some(w=>w.startsWith(str))){
+     const last=selected[selected.length-1];selected.forEach(x=>x.b.classList.remove('selected'));selected=[];
+     if(words.some(w=>w.startsWith(grid[r][c]))){selected=[last];last.b.classList.add('selected')}
+   }
+ };
+}
+const reasoningQuestions=[
+["Uma pessoa diz que só existe um jeito correto de viver e que todas as outras culturas estão erradas. Qual ideia do capítulo ajuda a questionar essa postura?","Diálogo intercultural: ouvir diferentes povos com empatia e respeito.",["Impor uma cultura única.","Ignorar as tradições.","Evitar conversar com quem pensa diferente."],"diálogo intercultural"],
+["Uma comunidade protege rios, plantas, animais e florestas porque entende que tudo faz parte de um mesmo sistema de vida. Qual ideia se relaciona a essa atitude?","A cosmologia indígena apresentada no texto de Krenak.",["A ideia de que a natureza é apenas um recurso.","A revolta contra o absurdo de Camus.","A busca por respostas no cosmos."],"cosmologia indígena"],
+["Uma pessoa sente angústia diante das incertezas, mas usa esse sentimento para refletir sobre como deseja viver. Qual filósofo se aproxima dessa ideia?","Søren Kierkegaard.",["Davi Kopenawa.","Albert Camus.","Ailton Krenak."],"Kierkegaard"],
+["Alguém percebe que o universo não oferece respostas definitivas, mas escolhe viver intensamente, com liberdade e solidariedade. Qual filósofo apresenta essa reflexão?","Albert Camus.",["Søren Kierkegaard.","Ailton Krenak.","Bruce Albert."],"Camus"],
+["Um estudante observa as estrelas, mas percebe que também precisa cuidar de sua família, de sua escola e do lugar onde vive. Qual mensagem do poema ele compreendeu?","Cuidar do lugar onde vive e das pessoas é mais importante do que apenas conhecer o céu.",["O cosmos responde a todas as perguntas.","A vida humana é infinita.","Somente a ciência importa."],"cuidado com a vida"],
+["Uma criança conhece as histórias, a língua, as tradições e os costumes de sua família e passa a compreender melhor sua identidade. Qual conceito explica isso?","Cultura e raízes culturais.",["Absurdo da existência.","Revolta contra o absurdo.","Queda do céu."],"cultura"],
+["Uma cidade desenvolve sua economia, mas destrói a floresta e polui os rios. Qual crítica apresentada por Krenak se relaciona a essa situação?","O progresso baseado na exploração excessiva e na desconexão com a natureza.",["A importância de conhecer o cosmos.","A necessidade de substituir todas as culturas.","A ideia de que a Terra não tem vida."],"crítica à exploração"],
+["Uma geração aprende com os ensinamentos de seus antepassados e os utiliza para cuidar do futuro. Qual expressão do capítulo resume essa atitude?","O futuro é ancestral.",["A queda do céu.","O absurdo da existência.","A beleza do cosmos."],"futuro ancestral"],
+["Uma pessoa tenta entender por que povos diferentes têm maneiras próprias de explicar o mundo e decide ouvi-los sem preconceito. Qual atitude ela está praticando?","Empatia e respeito no diálogo intercultural.",["Imposição cultural.","Exploração ambiental.","Rejeição da diversidade."],"empatia e respeito"],
+["Um aluno afirma que a beleza do mundo depende da quantidade de maneiras diferentes de enxergá-lo. Qual ideia da página ele está retomando?","A diversidade de visões de mundo, igualmente válidas e complementares.",["A existência de uma única cultura correta.","A ausência de influência da cultura.","A ideia de que todos devem pensar igual."],"visões de mundo"]
+];
+function startReasoning(){
+ show('minigame');setMusic('reasoning');$('gameLabel').textContent='Raciocínio e interpretação';$('gameTitle').textContent='Pense, relacione e escolha';
+ const qs=shuffle(reasoningQuestions);let i=0,score=0;
+ function draw(){
+  if(i>=qs.length){$('gameBody').innerHTML='<h3>Desafio concluído!</h3><p>Você acertou '+score+'/'+qs.length+' situações.</p><button class="btn primary" onclick="startReasoning()">Tentar novamente</button>';return}
+  const q=qs[i],opts=shuffle([q[1],...q[2]]);window.currentReasoning=q;window.currentReasoningOptions=opts;
+  $('gameBody').innerHTML='<div class="pill">Situação '+(i+1)+'/'+qs.length+'</div><h3>'+q[0]+'</h3><div class="answers">'+opts.map((o,j)=>`<button class="answer" onclick="answerReasoning(${j})">${o}</button>`).join('')+'</div>';
+ }
+ window.answerReasoning=j=>{
+  const q=qs[i],chosen=$('gameBody').querySelectorAll('button')[j].textContent,ok=chosen===q[1];
+  if(ok){score++;effect(true);$('gameFeedback').textContent='Muito bem! '+q[3]}
+  else{effect(false);$('gameFeedback').textContent='Vamos pensar: '+q[1]}
+  $('gameBody').querySelectorAll('button').forEach(b=>b.disabled=true);i++;setTimeout(draw,1250);
+ };
+ $('gameFeedback').textContent='';draw();
+}
+function startCross(){
+ show('minigame');setMusic('crossword');$('gameLabel').textContent='Palavras cruzadas';$('gameTitle').textContent='Preencha a cruzadinha';
+ const rows=[
+ '   EXISTENCIALISMO     ',
+ '            N          ',
+ '            G E        ',
+ '            U M        ',
+ '            S P        ',
+ '         C  T A    K   ',
+ '         U  I T    R   ',
+ '       SOLIDARIEDADE   ',
+ '         T    A    N   ',
+ '         U        CAMUS',
+ '         R         K   ',
+ 'COSMOLOGIA             '
+ ];
+ const R=rows.length,C=Math.max(...rows.map(x=>x.length));
+ const words=[
+ {w:'EXISTENCIALISMO',r:0,c:3,d:'H',clue:'Corrente filosófica ligada a Kierkegaard.'},
+ {w:'ANGUSTIA',r:0,c:12,d:'V',clue:'Sentimento que pode despertar a busca por uma vida autêntica.'},
+ {w:'SOLIDARIEDADE',r:7,c:7,d:'H',clue:'Laços e cuidado que, segundo Camus, tornam a vida mais significativa.'},
+ {w:'CULTURA',r:5,c:9,d:'V',clue:'Inclui língua, religião, artes, tradições, leis e normas sociais.'},
+ {w:'COSMOLOGIA',r:11,c:0,d:'H',clue:'Visão de mundo que integra a natureza à existência humana.'},
+ {w:'KRENAK',r:5,c:19,d:'V',clue:'Sobrenome do filósofo e escritor que apresenta a Terra como organismo vivo.'},
+ {w:'CAMUS',r:9,c:18,d:'H',clue:'Sobrenome do filósofo que refletiu sobre o absurdo da existência.'},
+ {w:'EMPATIA',r:2,c:14,d:'V',clue:'Atitude fundamental, junto com o respeito, para o diálogo intercultural.'}
+ ];
+ const target=Array.from({length:R},()=>Array(C).fill(''));
+ words.forEach(o=>[...o.w].forEach((ch,i)=>{target[o.r+(o.d==='V'?i:0)][o.c+(o.d==='H'?i:0)]=ch}));window.crosswordSolution=target;
+ $('gameFeedback').textContent='';
+ $('gameBody').innerHTML='<p>Preencha as casas com letras. As palavras se cruzam. A grade pode ser deslizada para os lados no celular.</p><div style="overflow-x:auto;padding:8px 0"><div id="crossGrid" style="display:grid;grid-template-columns:repeat('+C+',25px);gap:2px;width:max-content">'+target.flat().map((ch,i)=>ch?`<input aria-label="linha ${Math.floor(i/C)+1} coluna ${i%C+1}" maxlength="1" data-i="${i}" class="crosscell" style="width:25px;height:27px;text-align:center;padding:0;text-transform:uppercase;background:#f3e3c6;color:#38271a;border:1px solid #b68b61;border-radius:4px;font-weight:800" oninput="this.value=this.value.toUpperCase()">`:'<span style="width:25px;height:27px;background:transparent"></span>').join('')+'</div></div><div class="crossclues">'+words.map((o,i)=>`<div class="crossrow"><label><b>${i+1}.</b> ${o.clue} <small>(${o.d==='H'?'horizontal':'vertical'})</small></label></div>`).join('')+'</div><button class="btn primary" onclick="checkCross()">Conferir cruzadinha</button><p id="crossScore"></p>';
+ window.checkCross=()=>{
+   let good=0;
+   words.forEach(o=>{let ok=true;[...o.w].forEach((ch,i)=>{let r=o.r+(o.d==='V'?i:0),c=o.c+(o.d==='H'?i:0),el=$('crossGrid').querySelector(`[data-i="${r*C+c}"]`);if(!el||el.value.toUpperCase()!==ch)ok=false});if(ok)good++});
+   $('crossScore').textContent='Palavras corretas: '+good+'/'+words.length;
+   $('gameFeedback').textContent=good===words.length?'Parabéns! Você completou a cruzadinha.':'Continue tentando. Confira as pistas e as letras que se cruzam.';
+   effect(good===words.length);
+ };
+}
+const TRACKS={
+ home:{name:'Viagem pelo cosmos',bpm:66,wave:'sine',bass:'triangle',scale:[196,220,261.6,293.7,329.6,392,440],melodies:[[0,2,4,3,2,5,4,2],[0,3,4,6,4,3,2,1]],bassLine:[0,0,3,0]},
+ summary0:{name:'Reflexão ética',bpm:58,wave:'triangle',bass:'sine',scale:[174.6,196,220,261.6,293.7,349.2,392],melodies:[[0,2,4,2,3,1,4,2],[0,3,4,5,3,2,1,0]],bassLine:[0,0,4,0]},
+ summary1:{name:'Angústia e liberdade',bpm:72,wave:'sawtooth',bass:'triangle',scale:[146.8,174.6,196,220,261.6,293.7,349.2],melodies:[[0,3,2,5,4,2,1,3],[0,2,5,3,4,1,2,4]],bassLine:[0,3,0,4]},
+ summary2:{name:'O ser humano e o cosmos',bpm:64,wave:'sine',bass:'sine',scale:[207.7,233.1,277.2,311.1,349.2,415.3,466.2],melodies:[[0,2,4,6,4,3,2,1],[0,4,5,3,6,4,2,0]],bassLine:[0,0,3,4]},
+ summary3:{name:'Mundos e culturas',bpm:92,wave:'triangle',bass:'square',scale:[220,261.6,293.7,329.6,392,440,523.3],melodies:[[0,2,3,5,4,2,6,4],[0,3,5,4,2,3,6,5]],bassLine:[0,3,4,2]},
+ summary4:{name:'Natureza ancestral',bpm:76,wave:'sine',bass:'triangle',scale:[164.8,196,220,246.9,293.7,329.6,392],melodies:[[0,2,4,5,4,2,3,1],[0,4,3,5,2,4,1,0]],bassLine:[0,0,3,4]},
+ summary5:{name:'Diálogo e respeito',bpm:88,wave:'triangle',bass:'sine',scale:[196,220,261.6,293.7,329.6,392,440],melodies:[[0,2,3,5,4,3,1,2],[0,3,5,4,2,4,6,3]],bassLine:[0,3,4,0]},
+ levels:{name:'Escolha sua jornada',bpm:78,wave:'triangle',bass:'sine',scale:[196,220,261.6,293.7,329.6,392,440],melodies:[[0,2,4,5,3,4,6,2],[0,3,5,2,4,6,3,1]],bassLine:[0,3,4,2]},
+ games:{name:'Galeria de desafios',bpm:90,wave:'sine',bass:'triangle',scale:[220,261.6,293.7,329.6,392,440,523.3],melodies:[[0,3,4,2,5,3,6,4],[0,2,5,3,6,4,2,1]],bassLine:[0,4,3,5]},
+ quiz:{name:'Desafio do pensamento',bpm:108,wave:'square',bass:'triangle',scale:[164.8,196,220,246.9,293.7,329.6,392],melodies:[[0,2,4,5,3,4,2,6],[0,3,5,4,2,6,4,1]],bassLine:[0,3,0,4]},
+ memory:{name:'Memória das ideias',bpm:116,wave:'sine',bass:'triangle',scale:[261.6,293.7,329.6,392,440,523.3,587.3],melodies:[[0,2,4,6,4,2,3,5],[0,3,5,4,6,3,2,4]],bassLine:[0,4,3,5]},
+ truefalse:{name:'Verdadeiro ou falso',bpm:104,wave:'square',bass:'sawtooth',scale:[196,233.1,261.6,293.7,349.2,392,466.2],melodies:[[0,3,2,5,4,1,3,6],[0,2,4,3,6,4,1,2]],bassLine:[0,0,3,4]},
+ association:{name:'Conexões do saber',bpm:94,wave:'triangle',bass:'sine',scale:[220,246.9,293.7,329.6,370,440,493.9],melodies:[[0,2,4,3,5,4,2,6],[0,3,2,5,4,6,3,1]],bassLine:[0,3,4,2]},
+ columns:{name:'Ligue os conceitos',bpm:100,wave:'sine',bass:'triangle',scale:[196,220,261.6,293.7,329.6,392,440],melodies:[[0,4,2,5,3,6,4,2],[0,2,5,3,4,6,2,1]],bassLine:[0,4,3,5]},
+ relate:{name:'Palavras em relação',bpm:82,wave:'triangle',bass:'sine',scale:[174.6,207.7,233.1,261.6,311.1,349.2,415.3],melodies:[[0,2,5,3,4,1,3,6],[0,4,2,6,3,5,1,2]],bassLine:[0,2,4,3]},
+ wordsearch:{name:'Caça às ideias',bpm:112,wave:'square',bass:'triangle',scale:[220,261.6,293.7,329.6,392,440,523.3],melodies:[[0,2,3,5,4,6,3,2],[0,4,2,5,3,6,4,1]],bassLine:[0,3,4,2]},
+ reasoning:{name:'Desafio de raciocínio',bpm:86,wave:'triangle',bass:'sine',scale:[185,220,246.9,277.2,329.6,370,440],melodies:[[0,2,5,3,6,4,2,1],[0,4,3,6,2,5,1,4]],bassLine:[0,2,4,3]},
+ crossword:{name:'Cruzadinha filosófica',bpm:74,wave:'sine',bass:'triangle',scale:[185,220,246.9,277.2,329.6,370,440],melodies:[[0,3,2,5,4,2,6,3],[0,2,4,6,3,5,1,4]],bassLine:[0,4,2,5]},
+ result:{name:'Conquista do conhecimento',bpm:124,wave:'triangle',bass:'sine',scale:[261.6,293.7,329.6,392,440,523.3,587.3],melodies:[[0,2,4,6,5,4,2,0],[0,3,5,6,4,2,5,6]],bassLine:[0,4,3,5]}
+};
+const music={ctx:null,master:null,on:false,muted:false,vol:.28,scene:'home',track:TRACKS.home,melody:TRACKS.home.melodies[0],step:0,interval:null};
+function initAudio(){if(music.ctx)return;let C=window.AudioContext||window.webkitAudioContext;if(!C)return;music.ctx=new C();music.master=music.ctx.createGain();music.master.gain.value=music.muted?0:music.vol;music.master.connect(music.ctx.destination)}
+function tone(freq,dur,wave='sine',gain=.06,delay=0){
+ if(!music.ctx||!Number.isFinite(freq))return;
+ let o=music.ctx.createOscillator(),g=music.ctx.createGain();
+ o.type=wave;o.frequency.setValueAtTime(freq,music.ctx.currentTime+delay);
+ g.gain.setValueAtTime(.0001,music.ctx.currentTime+delay);
+ g.gain.exponentialRampToValueAtTime(Math.max(.0002,gain),music.ctx.currentTime+delay+.035);
+ g.gain.exponentialRampToValueAtTime(.0001,music.ctx.currentTime+delay+dur);
+ o.connect(g);g.connect(music.master);o.start(music.ctx.currentTime+delay);o.stop(music.ctx.currentTime+delay+dur+.04);
+}
+function setMusic(scene){
+ let key=scene;
+ if(scene==='summary')key='summary0';
+ if(scene==='minigame')key='memory';
+ if(!TRACKS[key])key='home';
+ music.scene=key;music.track=TRACKS[key];
+ music.melody=music.track.melodies[Math.floor(Math.random()*music.track.melodies.length)].slice();
+ music.step=0;
+ const label=$('trackName');if(label)label.textContent=music.track.name;
+ if(music.ctx&&music.on)restartMusic();
+}
+function musicTick(){
+ if(!music.on||music.muted||!music.ctx)return;
+ const t=music.track,beat=music.step%16,deg=music.melody[beat%8],freq=t.scale[deg];
+ if(beat%2===0)tone(freq,0.42,t.wave,.025);
+ if(beat%4===0){
+   const bassDeg=t.bassLine[Math.floor(beat/4)%t.bassLine.length]%t.scale.length;
+   tone(t.scale[bassDeg]/2,0.85,t.bass,.035);
+ }
+ if(beat===0||beat===8){
+   tone(freq*1.5,1.1,'sine',.012,.04);
+   tone(freq*2,0.7,'triangle',.008,.08);
+ }
+ if(beat===6||beat===14)tone(t.scale[(deg+2)%t.scale.length]*2,.12,'sine',.009);
+ music.step++;
+}
+function restartMusic(){
+ if(music.interval)clearInterval(music.interval);
+ music.step=0;musicTick();
+ const ms=60000/music.track.bpm/2;
+ music.interval=setInterval(musicTick,ms);
+}
+function playMusic(){
+ initAudio();if(!music.ctx)return;
+ music.ctx.resume();music.on=true;restartMusic();
+ $('musicToggle').textContent='♫';
+}
+function stopMusic(){
+ music.on=false;if(music.interval)clearInterval(music.interval);music.interval=null;
+ $('musicToggle').textContent='♪';
+}
+function effect(ok){
+ initAudio();if(!music.ctx)return;music.ctx.resume();
+ const scene=music.scene;
+ const wave=scene==='truefalse'||scene==='quiz'?'square':'triangle';
+ if(ok){
+   tone(scene==='memory'?784:659,.18,wave,.11);
+   tone(scene==='association'?987:880,.28,'sine',.10,.11);
+   tone(1174,.24,'triangle',.07,.22);
+ }else{
+   tone(scene==='crossword'?155:196,.22,'sawtooth',.08);
+   tone(130,.32,'triangle',.07,.12);
+ }
+}
 $('musicToggle').onclick=()=>music.on?stopMusic():playMusic();
 $('mute').onclick=()=>{music.muted=!music.muted;if(music.master)music.master.gain.value=music.muted?0:music.vol;$('mute').textContent=music.muted?'🔇':'🔊'};
 $('volume').oninput=e=>{music.vol=Number(e.target.value)/100;if(music.master&&!music.muted)music.master.gain.value=music.vol};
 document.addEventListener('pointerdown',e=>{if(e.target.closest('.audio'))return;if(!music.ctx)playMusic()},{once:true});
+setMusic('home');
+
+window.addEventListener('error',function(ev){
+ const panel=document.getElementById('runtimeError');
+ if(panel){panel.style.display='block';panel.textContent='O aplicativo encontrou um erro ao abrir este conteúdo. Feche e abra novamente. Detalhe: '+(ev.message||'erro de execução');}
+});
 </script></body></html>
