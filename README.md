@@ -1,4 +1,4 @@
-# Quiz Filosofia — 6º ano | Versão 1.0.1
+# Quiz Filosofia — 6º ano | Versão 1.0.2
 
 Aplicativo Android educativo baseado nas cinco páginas fotografadas do Livro do Aluno SAE Digital enviadas nesta conversa. Projeto independente: não misturar com Quiz História, ArteMica, Português ou Lyravoxen.
 
@@ -11,8 +11,8 @@ Aplicativo Android educativo baseado nas cinco páginas fotografadas do Livro do
 6. **Respeito cultural** — diálogo intercultural, empatia e respeito.
 
 ## Jogos e atividades
-- Quiz principal com **72 perguntas**, quatro alternativas, explicação, ordem aleatória, cronômetro, vidas, dica e pular para o final da fila sem remover a pergunta.
-- Verdadeiro ou falso com **32 itens**, sempre no formato de pergunta seguida de resposta/afirmação proposta para julgar.
+- Quiz principal com **30 perguntas revisadas**, quatro alternativas, explicação, ordem aleatória, cronômetro, vidas, dica e pular para o final da fila sem remover a pergunta.
+- Verdadeiro ou falso com **12 itens revisados e equilibrados**, sempre no formato de pergunta seguida de resposta/afirmação proposta para julgar.
 - Jogo da memória com **8 pares (16 cartas)**.
 - Associe pergunta e resposta com **8 pares**.
 - Ligue as colunas com **8 pares**.
@@ -33,13 +33,21 @@ As perguntas são embaralhadas a cada nova partida. Pular uma pergunta a move pa
 ## Música e efeitos
 O aplicativo usa síntese instrumental original via Web Audio, com perfis musicais separados para a tela inicial, resumo, cada seção do resumo, níveis, galeria de jogos, quiz, resultado e cada minijogo. As melodias têm variações aleatórias a cada entrada. Inclui controle de volume, mute e efeitos diferentes de acerto/erro.
 
+## Revisão pedagógica 1.0.2
+
+- Quiz principal reduzido de 72 para **30 questões**.
+- Removidas perguntas repetidas ou que cobravam a mesma informação com pequenas mudanças de palavras.
+- Questões reescritas em linguagem mais direta, adequada ao 6º ano, com alternativas mais coerentes com o conteúdo.
+- Conteúdo distribuído entre cosmos e ética, Kierkegaard, Camus, poema, cultura, diversidade, Ailton Krenak, Davi Kopenawa, Yanomami e diálogo intercultural.
+- Verdadeiro/falso reduzido de 32 para **12 afirmações**, com seis verdadeiras e seis falsas.
+
 ## Revisão corretiva 1.0.1
 A versão anterior continha uma falha crítica em `setMusic()`: ao trocar de tela depois de iniciar a música, o código tentava chamar `music.play()`, método que não existia. A exceção interrompia a execução antes de preencher os conteúdos dinâmicos, deixando resumo e jogos vazios. A navegação agora usa o reinício real da trilha (`restartMusic()`), e os testes simulam explicitamente a situação “iniciar música e trocar de tela”.
 
 Outras correções:
 - Resumo completo baseado nas cinco páginas, com conteúdo estático inicial como proteção adicional.
-- Banco principal ampliado para 72 perguntas e gabarito validado.
-- Verdadeiro/falso ampliado para 32 perguntas + respostas propostas.
+- Banco principal passou a 30 perguntas revisadas e com gabarito validado.
+- Verdadeiro/falso ajustado para 12 itens distintos + respostas propostas.
 - Jogos com bancos completos e telas preenchidas.
 - Caça-palavras horizontal/vertical e cruzadinha com grade interligada.
 - Trilhas exclusivas por tela e jogo.
